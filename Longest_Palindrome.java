@@ -6,7 +6,7 @@ class Solution {
             int count=0;
             int flag=0;
             if(i>0){
-                for(int k=i-1;k>=0;k--){
+                for(int k=i;k>=0;k--){
                     if(c==s.charAt(k)){
                         flag=1;
                     }
