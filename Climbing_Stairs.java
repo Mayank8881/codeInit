@@ -3,7 +3,7 @@ class Solution {
         if (n == 0) {
             return 1;
         }
-        else if (n < 0) {
+        if (n < 0) {
             return 0;
         }
         int one=climbStairs(n - 1);
