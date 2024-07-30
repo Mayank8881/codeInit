@@ -11,7 +11,7 @@ class Solution {
                 acount++;
             }
         } 
-        int global_count=1000000;
+        int global_count=10000;
         for(int i=0;i<n;i++){
             global_count=Math.min(global_count,bcount+arr[i]);
             if(s.charAt(i)=='b'){
