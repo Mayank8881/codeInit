@@ -25,7 +25,7 @@ class Solution {
                 s2="00"+s2;
             }
             else if(s2.length()==1){
-                s2="000"+s2;
+                s3="000"+s2;
             }
         }
         if(s3.length()!=4){
@@ -35,7 +35,7 @@ class Solution {
             else if(s3.length()==2){
                 s3="00"+s3;
             }
-            else if(s3.length()==1){
+            else if(s1.length()==1){
                 s3="000"+s3;
             }
         }
