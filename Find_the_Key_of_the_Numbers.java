@@ -58,9 +58,6 @@ class Solution {
                     s.append(s2.charAt(i));
                 }
             }
-            else if(s3.charAt(i)<s1.charAt(i)){
-                s.append(s3.charAt(i));
-            }
             else{
                 s.append(s1.charAt(i));
             }
