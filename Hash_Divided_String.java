@@ -16,7 +16,7 @@ class Solution {
             int fper=97+per;
             char f=(char)fper;
             str.append(f);
-            kk=kk+k;
+            kk=kk+kk;
             
         }
         String sstr=str.toString();
