@@ -7,10 +7,10 @@ class Solution {
             }
             nums[0]=temp;
 
-        }
-
-        for(int m=0;m<nums.length;m++){
+            for(int m=0;m<nums.length;m++){
             System.out.print(nums[m]+",");
+        }
+        System.out.println();
         }
         
     }
