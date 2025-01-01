@@ -1,7 +1,10 @@
 class Solution {
     public int maxScore(String s) {
         int l=0,r=0,maxSum=0;
-        while(r<s.length()-1){
+        
+        int x=s.length();
+        // System.out.println(x);
+        while(r<x){
             int count0=0,count1=0,sum=0,tSum=0;
             for(int i=l;i<=r;i++){
                 if(s.charAt(i)=='0'){
