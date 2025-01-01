@@ -2,9 +2,7 @@ class Solution {
     public int maxScore(String s) {
         int l=0,r=0,maxSum=0;
         
-        int x=s.length();
-        // System.out.println(x);
-        while(r<x){
+        while(r<s.length()){
             int count0=0,count1=0,sum=0,tSum=0;
             for(int i=l;i<=r;i++){
                 if(s.charAt(i)=='0'){
@@ -14,8 +12,6 @@ class Solution {
                     return 1;
                 }
             }
-            System.out.println(count0);
-            System.out.println(count1);
 
             for(int j=r+1;j<s.length();j++){
                 if(s.charAt(j)=='1'){
