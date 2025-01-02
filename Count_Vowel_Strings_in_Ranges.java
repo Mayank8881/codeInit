@@ -22,18 +22,8 @@
 //     }
 // }
 
-import java.util.HashSet;
-import java.util.Set;
-
 class Solution {
     public int[] vowelStrings(String[] words, int[][] queries) {
-        Set<Character> vowels = new HashSet<>();
-        vowels.add('a');
-        vowels.add('e');
-        vowels.add('i');
-        vowels.add('o');
-        vowels.add('u');
-
         int m = queries.length;
         int[] result = new int[m];
 
@@ -41,10 +31,9 @@ class Solution {
             int l = queries[i][0];
             int r = queries[i][1];
             int count = 0;
-
-            // Count words starting and ending with vowels in the range [l, r]
             for (int j = l; j <= r; j++) {
-                if (isVowel(words[j].charAt(0), vowels) && isVowel(words[j].charAt(words[j].length() - 1), vowels)) {
+                String word = words[j];
+                if (isVowel(word.charAt(0)) && isVowel(word.charAt(word.length() - 1))) {
                     count++;
                 }
             }
@@ -54,9 +43,7 @@ class Solution {
 
         return result;
     }
-
-    // Helper function to check if a character is a vowel using a Set
-    private boolean isVowel(char c, Set<Character> vowels) {
-        return vowels.contains(c);
+    private boolean isVowel(char c) {
+        return "aeiou".indexOf(c) != -1;
     }
 }
