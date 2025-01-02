@@ -7,11 +7,10 @@ class Solution {
             int count=0;
             int l=queries[i][0];
             int r=queries[i][1];
-            // System.out.println(x);
             for(int j=l;j<=r;j++){
                 int x=words[j].length();
                 if(words[j].charAt(0)=='a' || words[j].charAt(0)=='e' || words[j].charAt(0)=='i' || words[j].charAt(0)=='o' || words[j].charAt(0)=='u'){
-                    if(words[j].charAt(x-1)=='a' || words[j].charAt(x-1)=='e' || words[j].charAt(x-1)=='i' || words[j].charAt(x-1)=='o' || words[j].charAt(x-1)=='u'){
+                    if(words[j].charAt(x-1)=='a' || words[j].charAt(x-1)=='e' || words[j].charAt(x-1)=='i' || words[x-1].charAt(0)=='o' || words[x-1].charAt(0)=='u'){
                         count++;
                     }
                 }
