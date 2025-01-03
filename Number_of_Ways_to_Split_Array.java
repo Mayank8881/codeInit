@@ -7,7 +7,7 @@ class Solution {
         }
         for(int i=0;i<n-1;i++){
             lSum=lSum+nums[i];
-            if(lSum>=totalSum-lSum){
+            if(lSum>totalSum-lSum){
                 count++;
             }
         } 
