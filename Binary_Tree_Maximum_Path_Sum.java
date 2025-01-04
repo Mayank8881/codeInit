@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    int sum=Integer.MIN_VALUE;
+    int sum=0;
     int path(TreeNode root){
         if (root == null) {
             return 0;
