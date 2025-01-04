@@ -28,15 +28,9 @@ class Solution {
             int size=q.size();
             for(int i=0;i<size;i++){
                 TreeNode node=q.poll();
-                // int idx=leftToRight ? i:(size-1-i);
+                int idx=leftToRight ? i:size-i-1;
 
-                // arr.add(idx,node.val);
-                if(leftToRight){
-                    arr.add(node.val);
-                }
-                else{
-                    arr.add(0,node.val);
-                }
+                arr.add(idx,node.val);
                 if (node.left != null) {
                     q.add(node.left);
                 }
