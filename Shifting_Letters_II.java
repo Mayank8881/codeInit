@@ -1,6 +1,7 @@
 class Solution {
     public String shiftingLetters(String s, int[][] shifts) {
         StringBuilder sb=new StringBuilder(s);
+        System.out.println(shifts.length);
         for(int i=0;i<shifts.length;i++){
             int l=shifts[i][0];
             int r=shifts[i][1];
