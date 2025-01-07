@@ -4,7 +4,10 @@ class Solution {
         for(int i=0;i<words.length;i++){
             for(int j=0;j<words.length;j++){
                 if(i!=j && words[j].contains(words[i])){
-                    str.add(words[i]);
+                    if(!str.contains(words[i])){
+                        str.add(words[i]);
+                    }
+                    
                 }
             }
         }
