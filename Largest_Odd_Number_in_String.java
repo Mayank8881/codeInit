@@ -1,10 +1,8 @@
 class Solution {
     public String largestOddNumber(String num) {
-        int sum=0;
-        num = num.replaceAll("0+$", "");
-
         char c=num.charAt(num.length()-1);
         int n=c-'0';
+        int sum=0;
         if(n%2!=0){
             return num;
         }
