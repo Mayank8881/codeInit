@@ -43,7 +43,6 @@ class Solution {
                 } else {
                     pq.offer(new int[]{heightMap[newRow][newCol], newRow, newCol});
                 }
-                visited[newRow][newCol] = true;
             }
         }
         return water;
