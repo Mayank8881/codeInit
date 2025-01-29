@@ -44,7 +44,7 @@ class Solution {
                 parent[rootU] = rootV;
             } else {
                 parent[rootV] = rootU;
-                rank[rootU]++;
+                
             }
         }
     }
