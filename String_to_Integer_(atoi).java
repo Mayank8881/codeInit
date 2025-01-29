@@ -36,9 +36,7 @@ class Solution {
         int index=0;
 
         if (s.charAt(0) == '-' || s.charAt(0) == '+') {
-            if( s.charAt(0) == '-'){
-                negative=true;
-            }
+            negative = s.charAt(0) == '-';
             index++;
         }
 
