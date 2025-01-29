@@ -9,7 +9,6 @@ class Solution {
         for(int i=0;i<s.length();i++){
             for(int j=i+maxlen;j<s.length();j++){
                 if(j-i>maxlen && isPalindrome(s.substring(i,j))){
-                    maxlen = j - i;
                     maxStr=s.substring(i,j);
                 }
             }
