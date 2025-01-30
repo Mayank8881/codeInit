@@ -9,10 +9,6 @@ class Solution {
             x=1/x;
             return x*myPow(x,n-1);
         }
-        double ans=myPow(x,n/2);
-        if(n%2==0){
-            return ans*ans;
-        }
         return x*myPow(x,n-1);
     }
 }
