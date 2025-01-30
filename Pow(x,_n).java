@@ -1,4 +1,5 @@
 class Solution {
+    double sum=1;
     public double myPow(double x, int n) {
         if(n==0){
             return 1;
@@ -12,6 +13,6 @@ class Solution {
         if(n%2==0){
             return ans*ans;
         }
-        return x*ans*ans;
+        return x*myPow(x,n-1);
     }
 }
