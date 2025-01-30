@@ -1,7 +1,7 @@
 class Solution {
     public List<String> generateParenthesis(int n) {
         List<String> list=new ArrayList<>();
-        generate("",n,0,list);
+        generate("",n,n,list);
         return list;
     }
 
@@ -11,10 +11,12 @@ class Solution {
             return;
         }
         if(n>0){
-            generate(s+"(",n-1,m+1,list);
+
+        generate(s+"(",n-1,m,list);
         }
         if(m>0){
-            generate(s+")",n,m-1,list);
+
+        generate(s+")",n,m-1,list);
         }
     }
 }
