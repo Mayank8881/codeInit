@@ -4,15 +4,15 @@ class Solution {
         for(int i=0;i<nums.length-1;i++){
             if(nums[i]<nums[i+1]){
                 count++;
-                count2=1;
+                count2=0;
             }
             else if(nums[i]>nums[i+1]){
                 count2++;
-                count=1;
+                count=0;
             }
             else{
-                count=1;
-                count2=1;
+                count=0;
+                count2=0;
             }
             maxCount=Math.max(Math.max(count,count2),maxCount);
 
