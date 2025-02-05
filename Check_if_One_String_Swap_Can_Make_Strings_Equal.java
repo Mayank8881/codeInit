@@ -7,8 +7,8 @@ class Solution {
         Map<Character,Integer> map2=new HashMap<>();
         
         for(int i=0;i<s1.length();i++){
-            map1.put(s1.charAt(i),i);
-            map2.put(s2.charAt(i),i);
+            map1.put(s1.charAt(i), map1.getOrDefault(s1.charAt(i), 0) + 1);
+            map2.put(s2.charAt(i), map2.getOrDefault(s2.charAt(i), 0) + 1);
         }
         int diffCount=0;
         for (char key : map1.keySet()) {
@@ -16,7 +16,6 @@ class Solution {
                 diffCount++;
             }
         }
-        System.out.println(diffCount);
         
         if(diffCount>2){
             return false;
