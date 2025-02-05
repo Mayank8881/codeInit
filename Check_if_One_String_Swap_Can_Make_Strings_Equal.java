@@ -7,22 +7,21 @@ class Solution {
         Map<Character,Integer> map2=new HashMap<>();
         
         for(int i=0;i<s1.length();i++){
-            map1.put(s1.charAt(i),map1.getOrDefault(s1.charAt(i),0)+1);
-            map2.put(s2.charAt(i),map2.getOrDefault(s2.charAt(i),0)+1);
+            map1.put(s1.charAt(i),i);
+            map2.put(s2.charAt(i),i);
         }
-        List<Integer> diffIndices = new ArrayList<>();
-        for (int i=0;i<s1.length();i++) {
-            if (s1.charAt(i)!=s2.charAt(i)) {
-                diffIndices.add(i);
+        int diffCount=0;
+        for (char key : map1.keySet()) {
+            if (!map1.get(key).equals(map2.getOrDefault(key, 0))) {
+                diffCount++;
             }
         }
-        if (diffIndices.size() != 2) {
+        System.out.println(diffCount);
+        
+        if(diffCount>2){
             return false;
         }
-
-        int i = diffIndices.get(0);
-        int j = diffIndices.get(1);
-        return s1.charAt(i) == s2.charAt(j) && s1.charAt(j) == s2.charAt(i);
+        return true;
 
     }
 }
