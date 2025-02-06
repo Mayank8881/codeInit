@@ -12,7 +12,7 @@ class Solution {
         int result=0;
         for(int count:p.values()){
             if(count>1){
-                result+=count*(count-1)*4;
+                result+=8;
             }
         }
         return result;
