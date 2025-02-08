@@ -7,15 +7,15 @@ class NumberContainers {
     }
     
     public void change(int index, int number) {
-        if(m.containsKey(index) && m.get(index)==number)return;
-        m.put(index,number);
-        d.computeIfAbsent(number,k->new PriorityQueue<>()).offer(index);
+        if(m.containsKey(i) && m.get(i)==n)return;
+        m.put(i,n);
+        d.computeIfAbsent(n,k->new PriorityQueue<>()).offer(i);
     }
     
     public int find(int number) {
-        if(!d.containsKey(number)) return -1;
-        PriorityQueue<Integer> pq = d.get(number);
-        while(!pq.isEmpty() && m.get(pq.peek())!=number) pq.poll();
+        if(!d.containsKey(n)) return -1;
+        PriorityQueue<Integer> pq = d.get(n);
+        while(!pq.isEmpty() && m.get(pq.peek())!=n) pq.poll();
         return pq.isEmpty()? -1 : pq.peek();
     }
 }
