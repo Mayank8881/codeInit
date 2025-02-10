@@ -1,6 +1,7 @@
 class Solution {
     public String clearDigits(String s) {
         StringBuilder sb=new StringBuilder("");
+        System.out.println(sb);
         for(int i=0;i<s.length();i++){              //for(char c : s.toCharArray())
             if(s.charAt(i)>=48 && s.charAt(i)<=57){ //if(Character.isDigit(c))
                 sb.deleteCharAt(sb.length()-1);
