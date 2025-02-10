@@ -1,10 +1,10 @@
 class Solution {
     public static String[] arr = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     public List<String> letterCombinations(String digits) {
-        List<String> list=new ArrayList<>();
         if(digits.length()==0){
             return list;
         }
+        List<String> list=new ArrayList<>();
         printDial(digits,0,new StringBuilder(),list);
         return list;
     }
