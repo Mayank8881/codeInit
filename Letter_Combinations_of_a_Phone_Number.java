@@ -2,6 +2,9 @@ class Solution {
     public static String[] arr = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
     public List<String> letterCombinations(String digits) {
         List<String> list=new ArrayList<>();
+        if(digits.length()==0){
+            return list;
+        }
         printDial(digits,0,new StringBuilder(),list);
         return list;
     }
@@ -11,7 +14,6 @@ class Solution {
             list.add(sb.toString());
             return;
         }
-        
         for (char ch:arr[digits.charAt(i) - '0'].toCharArray()) {
             sb.append(ch);
             printDial(digits,i+1,sb,list);
