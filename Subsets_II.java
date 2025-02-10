@@ -1,5 +1,6 @@
 class Solution {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
+        Arrays.sort(nums);
         List<List<Integer>> result=new ArrayList<List<Integer>>();
         backtrack(0,nums,result,new ArrayList<>());
         return result;
