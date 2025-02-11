@@ -5,7 +5,7 @@ class Solution {
         Arrays.sort(g);
         Arrays.sort(s);
         int l=0,r=0;
-        while(r<m && l<n){
+        while(r<m-1){
             if(g[l]<=s[r]){
                 l++;
             }
