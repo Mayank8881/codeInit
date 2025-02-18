@@ -15,7 +15,7 @@ class Solution {
         }
 
         for(int digit=1;digit<=9;digit++){
-            if(!used[digit] && (index==0 || isValid(arr[index-1],digit,pattern.charAt(index-1)))){
+            if(!used[digit] && (index=0 || isValid(arr[index-1],digit,pattern.charAt(index-1)))){
                 used[digit]=true;
                 arr[index]=digit;
                 if( backtrack(pattern,index+1,arr,used,res)){
