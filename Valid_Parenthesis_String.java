@@ -7,20 +7,16 @@ class Solution {
             return false;
         }
         if(index==s.length()){
-            if(count==0){
-                // System.out.println(count);
-                return true;
-            }
-            return false;
+            return count==0;
         }
         if(s.charAt(index)=='('){
-            return check( s,index+1,count+1);
+            return check( s,index+1,count++);
         }
         else if(s.charAt(index)==')'){
-            return check( s,index+1,count-1);
+            return check( s,index+1,count--);
         }
-        else {
-            return (check( s,index+1,count) || check( s,index+1,count-1) || check( s,index+1,count+1)) ;
+        else{
+            return check( s,index+1,count);
         }
     }
 }
