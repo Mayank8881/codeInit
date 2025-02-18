@@ -39,7 +39,7 @@ class Solution {
             return check( s,index+1,count-1);
         }
         else {
-            return (check( s,index+1,count-1) || check( s,index+1,count-1) || check( s,index+1,count+1)) ;
+            return (check( s,index+1,count) || check( s,index+1,count-1) || check( s,index+1,count+1)) ;
         }
     }
 }
