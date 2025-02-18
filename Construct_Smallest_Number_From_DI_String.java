@@ -21,7 +21,7 @@ class Solution {
                 if( backtrack(pattern,index+1,arr,used,res)){
                     return true;
                 }
-                arr[index]=0;
+                num[index]=0;
                 used[digit]=false;
             }
         }
