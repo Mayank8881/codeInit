@@ -1,17 +1,21 @@
 class Solution {
     public String findDifferentBinaryString(String[] nums) {
         int n=nums.length;
-        StringBuilder sb=new StringBuilder();
+        int total = (int) Math.pow(2, n);
+        String[] binary = new String[total];
 
-        for(int i=0; i<n; i++){   
-            if(nums[i].charAt(i)=='0'){         
-                sb.append('1');
-            }else{
-                sb.append('0');
-            }            
+        for (int i = 0; i < total; i++) {
+            binary[i] = String.format("%" + n + "s", Integer.toBinaryString(i)).replace(' ', '0');
         }
+        // Arrays.sort(binary);
+        // Arrays.sort(nums);
         
-        return sb.toString();
-    }
+        for(int i=0;i<nums.length;i++){
+            if(!nums[i].contains(binary[i])){
+                return binary[i].toString();
+            }
+        }
 
+        return binary[nums.length].toString();
+    }
 }
