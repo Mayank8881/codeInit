@@ -7,11 +7,11 @@ class Solution {
         for (int i = 0; i < total; i++) {
             binary[i] = String.format("%" + n + "s", Integer.toBinaryString(i)).replace(' ', '0');
         }
-        // Arrays.sort(binary);
-        // Arrays.sort(nums);
+        Arrays.sort(binary);
+        Arrays.sort(nums);
         
         for(int i=0;i<nums.length;i++){
-            if(!nums[i].contains(binary[i])){
+            if(!nums[i].equals(binary[i])){
                 return binary[i].toString();
             }
         }
