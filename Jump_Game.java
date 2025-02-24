@@ -1,7 +1,7 @@
 class Solution {
     public boolean canJump(int[] nums) {
         int maxIndex=-1;
-        if(nums.length==1){
+        if(nums.length==1 && nums[0]!=0){
             return true;
         }
         for(int i=0;i<nums.length-1;i++){
