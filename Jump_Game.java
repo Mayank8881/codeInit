@@ -7,7 +7,7 @@ class Solution {
         for(int i=0;i<nums.length-1;i++){
             maxIndex=Math.max(maxIndex,i+nums[i]);
         }
-        if(maxIndex>=nums.length-1){
+        if(maxIndex>=nums[nums.length-1]){
             return true;
         }
         else{
