@@ -5,11 +5,6 @@ class Solution {
             return true;
         }
         for(int i=0;i<nums.length-1;i++){
-            if(nums[i]==0){
-                if(maxIndex<i+1){
-                    return false;
-                }
-            }
             if(maxIndex==0){
                 return false;
             }
