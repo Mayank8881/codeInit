@@ -1,11 +1,14 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
-
+        Arrays.sort(intervals,(a,b) -> a[0]-b[0]);
         List<int[]> result=new ArrayList<>();
+
+        if(intervals.length ==0 || intervals ==null){
+            return result.toArray(new int[0][]);
+        }
         int start=intervals[0][0];
         int end=intervals[0][1];
 
-        Arrays.sort(intervals,(a,b) -> a[0]-b[0]);
 
         for(int[] i :intervals){
             if(i[0]<=end){
