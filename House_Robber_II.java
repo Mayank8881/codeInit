@@ -18,7 +18,6 @@ class Solution {
 
     public int rob(int[] nums) {
         int n=nums.length;
-        if(n==1) return nums[0];
         int temp1[]=new int[n-1];
         int temp2[]=new int[n-1];
 
