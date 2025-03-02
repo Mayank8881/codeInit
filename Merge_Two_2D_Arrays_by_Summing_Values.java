@@ -21,6 +21,17 @@ class Solution {
                 j++;
             }
         }
+
+        while (i < nums1.length) {
+            result.add(nums1[i]);
+            i++;
+        }
+
+        while (j < nums2.length) {
+            result.add(nums2[j]);
+            j++;
+        }
+
         int[][] list = new int[result.size()][2];
         for (int k = 0; k < result.size(); k++) {
             list[k] = result.get(k);
