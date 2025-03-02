@@ -27,9 +27,9 @@ class Solution {
             i++;
         }
 
-        while (j < nums2.length) {
-            result.add(nums2[j]);
-            j++;
+        while (i < nums1.length) {
+            result.add(nums2[i]);
+            i++;
         }
 
         int[][] list = new int[result.size()][2];
