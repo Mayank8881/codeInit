@@ -12,9 +12,10 @@ class Solution {
         if(idx==0) return nums[idx];
         if(idx<0) return 0;
 
+        if(dp[idx]!=-1) return dp[idx];
         int pick=nums[idx]+robber(idx-2,nums,dp);
         int nonPick=robber(idx-1,nums,dp);
 
-        return Math.max(pick,nonPick);
+        return dp[idx]=Math.max(pick,nonPick);
     }
 }
