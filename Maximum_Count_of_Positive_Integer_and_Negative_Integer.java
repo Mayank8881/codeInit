@@ -1,12 +1,14 @@
 class Solution {
-    public int maximumCount(int[] nums) {
-        int negCount = binarySearch(nums, 0);
-        int posCount = nums.length - binarySearch(nums, 1);
-        return Math.max(negCount, posCount);
+public:
+    int maximumCount(vector<int>& nums) {
+        int neg_count = binarySearch(nums, 0);
+        int pos_count = nums.size() - binarySearch(nums, 1);
+        return max(neg_count, pos_count);
     }
 
-    private int binarySearch(int[] nums, int target) {
-        int left = 0, right = nums.length - 1, result = nums.length;
+private:
+    int binarySearch(vector<int>& nums, int target) {
+        int left = 0, right = nums.size() - 1, result = nums.size();
         
         while (left <= right) {
             int mid = (left + right) / 2;
@@ -20,4 +22,4 @@ class Solution {
         
         return result;
     }
-}
+};
