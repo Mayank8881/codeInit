@@ -1,6 +1,4 @@
 class Solution {
-
-    //Binary Search on Answer Concept
     public int minCapability(int[] nums, int k) {
         int max=Integer.MIN_VALUE;
         int min=Integer.MAX_VALUE;
