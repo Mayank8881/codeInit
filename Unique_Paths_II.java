@@ -8,7 +8,10 @@ class Solution {
 
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
+
+                //for removing obstacles
                 if(obstacleGrid[i][j]==1) dp[i][j]=0;
+                
                 else if (i==0 && j==0) continue;
                 else{
                     int left=0,up=0;
