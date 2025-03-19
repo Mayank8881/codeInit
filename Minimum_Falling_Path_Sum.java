@@ -11,8 +11,8 @@ class Solution {
             for(int j=0;j<m;j++){
                 int left=Integer.MAX_VALUE,right=Integer.MAX_VALUE;
                 int up=matrix[i][j]+dp[i-1][j];
-                if(j>0) left=matrix[i][j]+dp[i-1][j-1];
-                if(j<m-1) right=matrix[i][j]+dp[i-1][j+1];
+                if(j-1>0) left=matrix[i][j]+dp[i-1][j-1];
+                if(j+1<m) right=matrix[i][j]+dp[i-1][j+1];
 
                 dp[i][j]=Math.min(up,Math.min(left,right));
             }
