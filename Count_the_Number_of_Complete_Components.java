@@ -20,7 +20,7 @@ class Solution {
                     q.offer(i);
                     List<Integer>li=new ArrayList<>();
                     vis[i]=true;
-                    while(q.isEmpty())
+                    while(!q.isEmpty())
                     {
                         int x=q.poll();
                         li.add(x);
