@@ -23,7 +23,7 @@ class Solution {
         int mini=Integer.MIN_VALUE;
         for(int i=0;i<sum;i++){
             if(dp[n-1][i]==true){
-                mini=Math.min(mini,Math.abs(i-(sum-i)));
+                mini=Math.min(mini,Math.abs(i,sum-i));
             }
         }
         return mini;
