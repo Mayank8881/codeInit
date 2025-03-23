@@ -3,28 +3,25 @@ class Solution {
         int n=nums.length;
         int sum=0;
 
-        for(int i=0;i<n;i++){
-            nums[i] = Math.abs(nums[i]); 
-            sum+=nums[i];
-        }
-        boolean dp[][]=new boolean[n][sum+1];
+        for(int i=0;i<n;i++) sum+=nums[i];
+        Boolean dp[][]=new Boolean[n][sum+1];
 
         for(int i=0;i<n;i++) dp[i][0]=true;
         dp[0][nums[0]]=true;
 
-        for(int i=1;i<n;i++){
+        for(int i=0;i<n;i++){
             for(int j=1;j<=sum;j++){
-                boolean nonPick=dp[i-1][j];
+                boolean nonPick=dp[i-1][sum];
                 boolean pick=false;
-                if(nums[i]<=j){
-                    pick=dp[i-1][j-nums[i]];
+                if(nums[i]<=sum){
+                    pick=dp[i-1][sum-nums[i]];
                 }
-                dp[i][j]=pick | nonPick;
+                dp[i][sum]=pick | nonPick;
             }
         }
 
-        int mini=Integer.MAX_VALUE;
-        for(int i=0;i<sum/2;i++){
+        int mini=Integer.MIN_VALUE;
+        for(int i=0;i<sum;i++){
             if(dp[n-1][i]==true){
                 mini=Math.min(mini,Math.abs(i-(sum-i)));
             }
