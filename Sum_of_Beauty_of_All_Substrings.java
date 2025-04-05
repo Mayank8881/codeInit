@@ -13,6 +13,6 @@ class Solution {
             maxCount=Math.max(maxCount,count);
         }
 
-        return maxCount-minCount;
+        return max-min;
     }
 }
