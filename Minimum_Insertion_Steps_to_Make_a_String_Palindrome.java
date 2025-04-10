@@ -8,7 +8,6 @@ class Solution {
             }
         }
         int palindrom= lcs(s,str,s.length()-1,str.length()-1,dp);
-        if(palindrom==1) return s.length()-palindrom;
         int ans=s.length()-palindrom;
         if(ans==1) return 0;
         return ans;
