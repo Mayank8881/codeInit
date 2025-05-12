@@ -8,8 +8,8 @@ class Solution {
         int maxi=1;
         for(int i=0;i<nums.length;i++){
             for(int prev=0;prev<i;prev++){
-                if(nums[prev]<nums[i]){
-                    dp[i]=Math.max(dp[i],(1+dp[prev]));
+                if(nums[prev]<nums[i] && 1+dp[prev]>dp[i]){
+                    dp[i]=(1+dp[prev]);
                 }
             }
             maxi=Math.max(maxi,dp[i]);
