@@ -1,6 +1,4 @@
 class Solution {
-
-    //linked list slow fast pointer usage
     public int findDuplicate(int[] nums) {
         int slow = nums[0];
         int fast = nums[0];
@@ -13,6 +11,7 @@ class Solution {
                 break;
             }
         }
+
         int slow2 = nums[0];
 
         while (slow != slow2) {
