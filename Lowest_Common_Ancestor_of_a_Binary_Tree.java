@@ -9,18 +9,32 @@
  */
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        List<TreeNode> plist=new ArrayList<>();
-        List<TreeNode> qlist=new ArrayList<>();
 
-        trackPath(root,p,plist);
-        trackPath(root,q,qlist);
+        if(root==null || p==root || q==root) return root;
 
-        int i=0;
-        while(i<plist.size() && i<qlist.size() && plist.get(i)==qlist.get(i)){
-            i++;
+        TreeNode left=lowestCommonAncestor(root.left,p,q);
+        TreeNode right=lowestCommonAncestor(root.right,p,q);
+
+        if(left==null) return right;
+        if(right==null) return left;
+        else{
+            return root;
         }
 
-        return plist.get(i-1);
+
+
+        // List<TreeNode> plist=new ArrayList<>();
+        // List<TreeNode> qlist=new ArrayList<>();
+
+        // trackPath(root,p,plist);
+        // trackPath(root,q,qlist);
+
+        // int i=0;
+        // while(i<plist.size() && i<qlist.size() && plist.get(i)==qlist.get(i)){
+        //     i++;
+        // }
+
+        // return plist.get(i-1);
 
 
     }
