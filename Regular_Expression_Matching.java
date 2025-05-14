@@ -2,8 +2,8 @@ class Solution {
     public boolean isMatch(String s, String p) {
         int n=s.length();
         int m=p.length();
-        Boolean[][] dp = new Boolean[n+1][m+1];
-        return findMatch(s,p,n,m,dp);
+        Boolean[][] dp = new Boolean[n][m];
+        return findMatch(s,p,n-1,m-1,dp);
     }
 
     public boolean findMatch(String s,String p,int i,int j,Boolean[][] dp){
