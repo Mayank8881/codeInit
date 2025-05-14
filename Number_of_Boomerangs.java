@@ -6,7 +6,7 @@ class Solution {
         for(int i=0;i<n;i++){
             HashMap<Long,Integer> hm= new HashMap<>();
             for(int j=0;j<n;j++){
-                if(j>=i)continue;
+                if(j==i)continue;
                 int y = points[i][1]-points[j][1];
                 int x = points[i][0]-points[j][0];
                 long key = y*y + x*x;
