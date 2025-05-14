@@ -7,20 +7,27 @@ class Solution {
     }
 
     public boolean findMatch(String s,String p,int i,int j,Boolean[][] dp){
-        if (i == 0 && j == 0) return true;
-        if (j == 0) return false;
-        if (dp[i][j] != null) return dp[i][j];
 
-        boolean match;
-        if (j >= 2 && p.charAt(j - 1) == '*') {
-            match = findMatch(s, p, i, j - 2, dp) || 
-                    (i > 0 && (s.charAt(i - 1) == p.charAt(j - 2) || p.charAt(j - 2) == '.') 
-                     && findMatch(s, p, i - 1, j, dp));
-        } else {
-            match = i > 0 && (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.') 
-                    && findMatch(s, p, i - 1, j - 1, dp);
+        if(i<0 && j<0) return true;
+        if(j<0 && i>=0) return false;
+        if(i<0 && j>=0){
+            for(int k=0;k<=j;k++){
+                if(p.charAt(k)!='*') return false;
+            }
+            return true;
         }
-        dp[i][j] = match;
-        return match;
+
+        if(dp[i][j]!=null ) return dp[i][j];
+
+        if(s.charAt(i)==p.charAt(j) || p.charAt(j)=='.'){
+            dp[i][j]=findMatch(s,p,i-1,j-1,dp);
+        }
+        else if(p.charAt(j)=='*'){
+            dp[i][j]= findMatch(s,p,i,j-1,dp) || findMatch(s,p,i-1,j,dp);
+        }
+        else{
+            dp[i][j]=false;
+        }
+        return dp[i][j];
     }
 }
