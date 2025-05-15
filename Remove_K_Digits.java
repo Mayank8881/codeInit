@@ -12,7 +12,7 @@ class Solution {
         
         while (k > 0 && !stack.isEmpty()) {
             stack.pop();
-            k--;
+            k++;
         }
         
         StringBuilder sb = new StringBuilder();
