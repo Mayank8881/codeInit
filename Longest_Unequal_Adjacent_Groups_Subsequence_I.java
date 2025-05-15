@@ -6,7 +6,7 @@ class Solution {
         int last=groups[0];
         
         for(int i=1;i<groups.length;i++){
-            if(groups[i]!=last){
+            if(groups[i]==last){
                 list.add(words[i]);
                 last=groups[i];
             }
