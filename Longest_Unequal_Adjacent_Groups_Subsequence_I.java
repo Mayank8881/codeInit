@@ -3,13 +3,12 @@ class Solution {
         List<String> list=new ArrayList<>();
         boolean isPick=true;
         list.add(words[0]);
+        int last=groups[0];
         
         for(int i=1;i<groups.length;i++){
-            if(groups[i]==groups[i-1]){
-                isPick=!isPick;
-            }
-            if(isPick){
+            if(groups[i]!=last){
                 list.add(words[i]);
+                last=groups[i];
             }
         }
         return list;
