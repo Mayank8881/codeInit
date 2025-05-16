@@ -7,32 +7,28 @@ class Solution {
 
         while (top <= bottom && left <= right) {
             for (int i = left; i <= right; i++) {
-                if(!l1.contains(matrix[top][i])){
-                    l1.add(matrix[top][i]);
-                }
+                l1.add(matrix[top][i]);
             }
             top++;
             for (int i = top; i <= bottom; i++) {
-                if(!l1.contains(matrix[i][right])){
-
                 l1.add(matrix[i][right]);
-                }
             }
             right--;
-            for (int i = right; i >= left; i--) {
-                if(!l1.contains(matrix[bottom][i])){
 
-                l1.add(matrix[bottom][i]);
+            if(top<=bottom){
+                for (int i = right; i >= left; i--) {
+                    l1.add(matrix[bottom][i]);
                 }
+                bottom--;
             }
-            bottom--;
-            for (int i = bottom; i >= top; i--) {
-                if(!l1.contains(matrix[i][left])){
+            
+            if(left<=right){
+                for (int i = bottom; i >= top; i--) {
                     l1.add(matrix[i][left]);
-
                 }
+                left++;
             }
-            left++;
+            
         }
         return l1;
     }
