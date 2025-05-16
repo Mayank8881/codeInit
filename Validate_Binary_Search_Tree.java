@@ -20,7 +20,7 @@ class Solution {
 
     boolean checkBST(TreeNode root,int mini,int maxi){
         if(root==null) return true;
-        if(root.val<=mini || root.val>=maxi) return false;
+        if(root.val<mini || root.val>maxi) return false;
 
         boolean left=checkBST(root.left,mini,root.val);
         boolean right=checkBST(root.right,root.val,maxi);
