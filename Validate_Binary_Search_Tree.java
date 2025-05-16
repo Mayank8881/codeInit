@@ -15,10 +15,10 @@
  */
 class Solution {
     public boolean isValidBST(TreeNode root) {
-        return checkBST(root,Long.MIN_VALUE,Long.MAX_VALUE);
+        return checkBST(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
     }
 
-    boolean checkBST(TreeNode root,long mini,long maxi){
+    boolean checkBST(TreeNode root,int mini,int maxi){
         if(root==null) return true;
         if(root.val<=mini || root.val>=maxi) return false;
 
