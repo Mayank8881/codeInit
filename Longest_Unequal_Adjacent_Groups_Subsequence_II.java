@@ -1,41 +1,44 @@
 class Solution {
-public:
-    bool differByOneChar(string word1, string word2) {
-        if (word1.length() != word2.length()) return false;
-        int diffCount = 0;
-        for (int i = 0; i < word1.length(); i++) 
-            diffCount += word1[i] != word2[i];
-        return diffCount == 1;
+    public List<String> getWordsInLongestSubsequence(String[] words, int[] groups) {
+        Map<String, List<String>> memo = new HashMap<>();
+        int n = words.length;
+        List<String> best = new ArrayList<>();
+
+        for (int i = 0; i < n; i++) {
+            List<String> res = new ArrayList<>();
+            res.add(words[i]);
+            res.addAll(helper(i + 1, groups[i], words[i], words, groups, memo));
+            if (res.size() > best.size()) best = res;
+        }
+
+        return best;
     }
-    
-    vector<string> getWordsInLongestSubsequence(vector<string>& words, vector<int>& groups) {
-        int n = groups.size();
-        vector<int> dp(n, 1), parent(n, -1);
-        int maxi = 0;
-        
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < i; j++) {
-                if (groups[i] != groups[j] && 
-                        differByOneChar(words[i], words[j]) && 
-                            dp[i] < dp[j] + 1) {
-                    dp[i] = dp[j] + 1;
-                    parent[i] = j;
-                }
-            }
-            maxi = max(maxi, dp[i]);
+
+    private List<String> helper(int i, int lastGroup, String lastWord,
+                                String[] words, int[] groups, Map<String, List<String>> memo) {
+        if (i >= words.length) return new ArrayList<>();
+        String key = i + "|" + lastGroup + "|" + lastWord;
+        if (memo.containsKey(key)) return memo.get(key);
+
+        List<String> take = new ArrayList<>();
+        if (words[i].length() == lastWord.length() &&
+            hamming(words[i], lastWord) &&
+            groups[i] != lastGroup) {
+            take.add(words[i]);
+            take.addAll(helper(i + 1, groups[i], words[i], words, groups, memo));
         }
-        
-        vector<string> result;
-        for (int i = 0; i < n; i++) {
-            if (maxi == dp[i]) {
-                while (i != -1) {
-                    result.push_back(words[i]);
-                    i = parent[i];
-                }
-                break;
-            }
-        }
-        reverse(result.begin(), result.end());
+
+        List<String> skip = helper(i + 1, lastGroup, lastWord, words, groups, memo);
+        List<String> result = take.size() > skip.size() ? take : skip;
+        memo.put(key, result);
         return result;
     }
-};
+
+    private boolean hamming(String a, String b) {
+        int diff = 0;
+        for (int i = 0; i < a.length(); i++) {
+            if (a.charAt(i) != b.charAt(i)) diff++;
+        }
+        return diff == 1;
+    }
+}
