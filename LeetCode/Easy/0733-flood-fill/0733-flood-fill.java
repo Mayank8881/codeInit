@@ -1,6 +1,7 @@
 class Pair{
     int row;
     int col;
+    int tm;
     Pair(int row,int col){
         this.row=row;
         this.col=col;
@@ -31,7 +32,7 @@ class Solution {
         while(!q.isEmpty()){
             int r=q.peek().row;
             int c=q.peek().col;
-            q.remove();
+
             for(int i=0;i<4;i++){
                 int row=r+drow[i];
                 int col=c+dcol[i];
