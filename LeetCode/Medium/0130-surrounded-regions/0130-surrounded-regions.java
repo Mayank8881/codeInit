@@ -23,7 +23,6 @@ class Solution {
                 dfs(n-1,j,vis,board,drow,dcol);
             }
         }
-
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(board[i][j]=='O' && vis[i][j]==0){
