@@ -1,30 +1,41 @@
 class Solution {
     public List<Integer> eventualSafeNodes(int[][] graph) {
-        int n = graph.length;
-        int[] state = new int[n]; // 0: unvisited, 1: visiting, 2: safe
-        List<Integer> safe = new ArrayList<>();
+        int v=graph.length;
+        ArrayList<ArrayList<Integer>> adjRev=new ArrayList<>();
+        int indegree[]=new int[v];
 
-        for (int i = 0; i < n; i++) {
-            if (dfs(graph, i, state)) {
-                safe.add(i);
+        for(int i=0;i<v;i++){
+            adjRev.add(new ArrayList<>());
+        }
+
+        //reverse adj list
+        for(int i=0;i<v;i++){
+            for(int neighbor:graph[i]){
+                adjRev.get(neighbor).add(i);
+                indegree[i]++;
             }
         }
-        
-        return safe;
-    }
 
-    private boolean dfs(int[][] graph, int node, int[] state) {
-        if (state[node] > 0) return state[node] == 2; // Already safe
-        
-        state[node] = 1; // Mark as visiting
-        
-        for (int next : graph[node]) {
-            if (state[next] == 1 || !dfs(graph, next, state)) {
-                return false; // Cycle detected
+        Queue<Integer> q=new LinkedList<>();
+        for(int i=0;i<v;i++){
+            if(indegree[i]==0){
+                q.add(i);
             }
         }
-        
-        state[node] = 2; // Mark as safe
-        return true;
+
+        ArrayList<Integer> res=new ArrayList<>();
+
+        while(!q.isEmpty()){
+            int node=q.peek();
+            q.remove();
+            res.add(node);
+            
+            for(int neighbor:adjRev.get(node)){
+                indegree[neighbor]--;
+                if(indegree[neighbor]==0) q.add(neighbor);
+            }
+        }
+        Collections.sort(res);
+        return res;
     }
 }
