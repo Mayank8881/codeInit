@@ -3,22 +3,26 @@ class Solution {
         int m=obstacleGrid.length;
         int n=obstacleGrid[0].length;
         int dp[][]=new int[m][n];
-
-        dp[0][0]=1;
-
         for(int i=0;i<m;i++){
-            for(int j=0;j<n;j++){
-                if(obstacleGrid[i][j]==1) dp[i][j]=0;
-                else if (i==0 && j==0) continue;
-                else{
-                    int left=0,up=0;
-                    if(i>0) up=dp[i-1][j];
-                    if(j>0) left=dp[i][j-1];
-                    dp[i][j]=up+left;
-                }
-                
-            }
+            Arrays.fill(dp[i],-1);
         }
-        return dp[m-1][n-1];
+        return findPaths(obstacleGrid,m-1,n-1,dp);
+    }
+
+    int findPaths(int[][] arr,int m,int n,int[][] dp){
+        
+        if(arr[m][n]==1 )return 0;
+        if(m==0 && n==0) return 1;
+
+        if(dp[m][n]!=-1) return dp[m][n];
+
+        int left=0;
+        int top=0;
+
+        if(n>0) top=findPaths(arr,m,n-1,dp);
+        if(m>0) left=findPaths(arr,m-1,n,dp);
+
+        dp[m][n]=top+left;
+        return dp[m][n];
     }
 }
